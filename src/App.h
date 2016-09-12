@@ -15,7 +15,7 @@ class App {
 protected:
 
     Response processRequest(FCGX_Request fcgi_request);
-    std::vector<Filter> filters;
+    std::vector<Filter *> filters;
 
     std::streambuf *cin_streambuf;
     std::streambuf *cout_streambuf;
@@ -26,7 +26,7 @@ public:
     virtual void configure() { };
     void run();
 
-    void addFilter(Filter filter);
+    void addFilter(Filter *filter);
 };
 
 

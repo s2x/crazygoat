@@ -30,8 +30,8 @@ Response App::processRequest(FCGX_Request fcgi_request) {
     //proces fastcgi headers
     Request request(fcgi_request);
     Response response;
-    if (filters.size()) {
-        response = this->filters.front().processNext(request, response);
+    if (filters.size()>0) {
+        response = this->filters.front()->invoke(request, response);
     }
     //return response
     return response;
@@ -42,7 +42,7 @@ Response App::processRequest(FCGX_Request fcgi_request) {
  * main applicaton loop
  */
 void App::run() {
-
+    this->configure();
     FCGX_Request request;
 
     // configure some fastcgi data
@@ -68,7 +68,6 @@ void App::run() {
 #endif
         //process request;
         Response resp = this->processRequest(request);
-
         //return headers and content
         FCGX_FPrintF(request.out, "%s"
                 "\r\n"
@@ -77,11 +76,9 @@ void App::run() {
         //fastcig cleanup
         FCGX_Finish_r(&request);
     }
-
-;
 }
 
-void App::addFilter(Filter filter) {
+void App::addFilter(Filter *filter) {
     this->filters.push_back(filter);
 }
 

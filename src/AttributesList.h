@@ -16,7 +16,7 @@ private:
     std::map<std::string, std::vector<Attribute> > attributes;
 public:
     void setAttribute(std::string name, Attribute attribute);
-    operator std::string() const;
+    operator std::string();
 };
 
 

@@ -4,8 +4,12 @@
 
 #include "AttributesList.h"
 
-AttributesList::operator std::string() const {
-    return "dupa";
+AttributesList::operator std::string() {
+    std::string headers;
+    for (auto& header: this->attributes) {
+        headers += header.first + ":" + header.second.front().toString() +"\r\n";
+    }
+    return headers;
 }
 
 void AttributesList::setAttribute(std::string name, Attribute attribute) {

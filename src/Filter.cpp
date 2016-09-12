@@ -12,11 +12,6 @@ Response Filter::processNext(Request request, Response response) {
     return Response();
 }
 
-Response Filter::invoke(Request request, Response response) {
-    return Response();
-}
-
-
 
 
 

@@ -28,3 +28,9 @@
 *.out
 *.app
 /.idea/
+/CMakeFiles/
+/CMakeCache.txt
+/CPackConfig.cmake
+/CPackSourceConfig.cmake
+/Makefile
+/cmake_install.cmake

@@ -13,7 +13,7 @@ protected:
     std::string value;
 public:
     Attribute(std::string value, std::string name = "");
-    operator std::string() const;
+    std::string toString();
 };
 
 

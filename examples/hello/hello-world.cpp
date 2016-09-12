@@ -13,13 +13,12 @@ class myFilter : public Filter {
 
 class myApp : public App {
     void configure() {
-        myFilter helloWorld;
-        this->addFilter(helloWorld);
+        this->addFilter(new myFilter());
     }
 };
 
 int main()
 {
-    App app;
+    myApp app;
     app.run();
 }

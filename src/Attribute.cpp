@@ -9,9 +9,10 @@ Attribute::Attribute(std::string value, std::string name) {
     this->value = value;
 }
 
-Attribute::operator std::string() const {
+std::string Attribute::toString() {
     if (this->name.length()) {
         return this->name + "=" + this->value;
     }
     return this->value;
 }
+

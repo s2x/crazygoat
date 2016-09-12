@@ -11,10 +11,10 @@
 class Filter {
 protected:
     Filter *next;
+    Response processNext(Request request, Response response);
 public:
     void setNext(Filter *next);
-    Response processNext(Request request, Response response);
-    virtual Response invoke(Request request, Response response);
+    virtual Response invoke(Request request, Response response) {};
 };
 
 

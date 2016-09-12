@@ -6,14 +6,14 @@
 #include "Response.h"
 
 std::string Response::getContent() {
-    return "Hello world!";
+    return this->content;
 }
 
 std::string Response::getHeaders() {
 
     this->attributes.setAttribute(
             "Content-length",
-            Attribute(std::to_string(this->getContent().length()))
+            Attribute(std::to_string(this->content.length()))
     );
 
     return this->attributes;
