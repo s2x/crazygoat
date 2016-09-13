@@ -1,0 +1,5 @@
+language: cpp
+script: cmake
+dist: trusty
+os:
+- linux
