@@ -10,13 +10,19 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 find_package(Fcgi)
 
-set(SOURCE_FILES src/App.cpp src/App.h src/Response.cpp src/Response.h src/Request.cpp src/Request.h src/AttributesList.cpp src/AttributesList.cpp src/AttributesList.h src/Attribute.cpp src/Attribute.h src/Filter.cpp src/Filter.h)
+set(SOURCE_FILES src/App.cpp src/App.h src/Response.cpp src/Response.h src/Request.cpp src/Request.h src/Attributes/AttributesList.cpp src/Attributes/AttributesList.cpp src/Attributes/AttributesList.h src/Attributes/Attribute.cpp src/Attributes/Attribute.h src/Filters/Filter.cpp src/Filters/Filter.h)
 add_library(crazygoat ${SOURCE_FILES})
-add_executable(hello examples/hello/hello-world.cpp)
 
-target_link_libraries(hello crazygoat
-        ${FCGI_LIBRARY}
-        ${FCGICC_LIBRARY})
+add_executable(example-hello-world examples/hello/hello-world.cpp)
+set_target_properties(example-hello-world PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+set_target_properties(example-hello-world PROPERTIES OUTPUT_NAME "hello-world.fcgi")
+target_link_libraries(example-hello-world crazygoat ${FCGI_LIBRARY} ${FCGICC_LIBRARY})
+
+
+add_executable(example-filters examples/hello/filters.cpp)
+set_target_properties(example-filters PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+set_target_properties(example-filters PROPERTIES OUTPUT_NAME "filters.fcgi")
+target_link_libraries(example-filters crazygoat ${FCGI_LIBRARY} ${FCGICC_LIBRARY})
 
 install(TARGETS crazygoat DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 

@@ -5,14 +5,14 @@
 #ifndef CRAZYGOAT_ACTION_H
 #define CRAZYGOAT_ACTION_H
 
-#include "Response.h"
-#include "Request.h"
+#include "../Response.h"
+#include "../Request.h"
 
 class Filter {
 protected:
     Filter *next;
-    Response processNext(Request request, Response response);
 public:
+    Filter();
     void setNext(Filter *next);
     virtual Response invoke(Request request, Response response) {};
 };

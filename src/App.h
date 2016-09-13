@@ -9,7 +9,7 @@
 #include <fcgiapp.h>
 
 #include "Response.h"
-#include "Filter.h"
+#include "Filters/Filter.h"
 
 class App {
 protected:
@@ -26,7 +26,7 @@ public:
     virtual void configure() { };
     void run();
 
-    void addFilter(Filter *filter);
+    App* addFilter(Filter *filter);
 };
 
 

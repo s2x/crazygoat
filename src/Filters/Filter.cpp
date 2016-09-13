@@ -8,9 +8,11 @@ void Filter::setNext(Filter *next) {
     this->next = next;
 }
 
-Response Filter::processNext(Request request, Response response) {
-    return Response();
+Filter::Filter() {
+    this->next = nullptr;
 }
+
+
 
 
 

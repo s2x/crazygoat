@@ -78,7 +78,13 @@ void App::run() {
     }
 }
 
-void App::addFilter(Filter *filter) {
+App* App::addFilter(Filter *filter) {
+    if (this->filters.size()>0) {
+        this->filters.back()->setNext(filter);
+    }
+
     this->filters.push_back(filter);
+
+    return this;
 }
 

@@ -21,5 +21,17 @@ void AttributesList::setAttribute(std::string name, Attribute attribute) {
     this->attributes[name].push_back(attribute);
 }
 
+AttributesList::AttributesList() {
+    this->attributes.clear();
+}
+
+AttributesList::AttributesList(FCGX_Request request) {
+    this->attributes.clear();
+}
+
+
+
+
+
 
 
