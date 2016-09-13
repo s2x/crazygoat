@@ -39,5 +39,6 @@
 *.cmake
 *.tcl
 /_CPack_Packages/
+/build
 *.deb
 *.txt

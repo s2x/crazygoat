@@ -2,7 +2,7 @@
 // Created by piotr on 12.09.16.
 //
 
-#include "Filter.h"
+#include "../../include/crazygoat/Filter.h"
 
 void Filter::setNext(Filter *next) {
     this->next = next;

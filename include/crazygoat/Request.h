@@ -7,14 +7,13 @@
 
 
 #include <fcgiapp.h>
-#include "../include/crazygoat/AttributesList.h"
+#include "Attributes/AttributesList.h"
 
 class Request {
 protected:
     AttributesList *attributes;
     FCGX_Request request;
 public:
-    Request();
     Request(FCGX_Request request);
 };
 

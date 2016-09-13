@@ -6,7 +6,7 @@
 #define CRAZYGOAT_RESPONSE_H
 
 #include <iostream>
-#include "../include/crazygoat/AttributesList.h"
+#include "Attributes/AttributesList.h"
 
 class Response {
 protected:
@@ -16,8 +16,6 @@ public:
     Response();
     std::string getContent();
     std::string getHeaders();
-    std::string getHeader(std::string name);
-    bool hasHeader(std::string name);
     void setContent(std::string content);
 };
 
