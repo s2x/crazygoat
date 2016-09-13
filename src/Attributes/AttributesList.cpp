@@ -2,7 +2,7 @@
 // Created by piotr on 12.09.16.
 //
 
-#include "AttributesList.h"
+#include "../../include/crazygoat/AttributesList.h"
 
 AttributesList::operator std::string() {
     std::string headers;

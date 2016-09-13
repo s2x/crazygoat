@@ -2,7 +2,7 @@
 // Created by piotr on 12.09.16.
 //
 
-#include "Attribute.h"
+#include "../../include/crazygoat/Attribute.h"
 
 Attribute::Attribute(std::string value, std::string name) {
     this->name = name;

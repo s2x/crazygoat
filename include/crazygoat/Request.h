@@ -7,7 +7,7 @@
 
 
 #include <fcgiapp.h>
-#include "../include/crazygoat/AttributesList.h"
+#include "Attributes/AttributesList.h"
 
 class Request {
 protected:
