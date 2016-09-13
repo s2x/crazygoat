@@ -15,4 +15,4 @@ sudo: required
 dist: trusty
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libfcgi-dev
+  - sudo apt-get install -y libfcgi-dev devscripts
