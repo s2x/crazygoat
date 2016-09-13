@@ -2,7 +2,7 @@
 // Created by piotr on 13.09.16.
 //
 
-#include "../src/Filters/Filter.h"
+#include "../include/crazygoat/Filter.h"
 
 std::string helloString = "Hello world";
 
