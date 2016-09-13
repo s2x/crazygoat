@@ -19,6 +19,8 @@ public:
     AttributesList();
     AttributesList(FCGX_Request request);
     void setAttribute(std::string name, Attribute attribute);
+    bool hasAttribute(std::string name);
+    std::string getAttribute(std::string name);
     operator std::string();
 };
 

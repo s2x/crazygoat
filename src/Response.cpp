@@ -10,12 +10,6 @@ std::string Response::getContent() {
 }
 
 std::string Response::getHeaders() {
-
-    this->attributes.setAttribute(
-            "Content-length",
-            Attribute(std::to_string(this->content.length()))
-    );
-
     return this->attributes;
 }
 
@@ -26,7 +20,23 @@ Response::Response() {
 
 void Response::setContent(std::string content) {
     this->content = content;
+    this->attributes.setAttribute(
+            "Content-length",
+            Attribute(std::to_string(this->content.length()))
+    );
 }
+
+std::string Response::getHeader(std::string name) {
+    return this->attributes.getAttribute(name);
+}
+
+bool Response::hasHeader(std::string name) {
+    return this->attributes.hasAttribute(name);
+}
+
+
+
+
 
 
 

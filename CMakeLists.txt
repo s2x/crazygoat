@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 project(crazygoat)
+include( CTest )
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(crazygoat_VERSION_MAJOR 0)
@@ -14,17 +15,19 @@ set(SOURCE_FILES src/App.cpp src/App.h src/Response.cpp src/Response.h src/Reque
 add_library(crazygoat ${SOURCE_FILES})
 
 add_executable(example-hello-world examples/hello/hello-world.cpp)
-set_target_properties(example-hello-world PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+set_target_properties(example-hello-world PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/examples")
 set_target_properties(example-hello-world PROPERTIES OUTPUT_NAME "hello-world.fcgi")
 target_link_libraries(example-hello-world crazygoat ${FCGI_LIBRARY} ${FCGICC_LIBRARY})
 
 
 add_executable(example-filters examples/hello/filters.cpp)
-set_target_properties(example-filters PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+set_target_properties(example-filters PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/examples")
 set_target_properties(example-filters PROPERTIES OUTPUT_NAME "filters.fcgi")
 target_link_libraries(example-filters crazygoat ${FCGI_LIBRARY} ${FCGICC_LIBRARY})
 
 install(TARGETS crazygoat DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+
+add_subdirectory(test)
 
 # build a CPack driven installer package
 include (InstallRequiredSystemLibraries)

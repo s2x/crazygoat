@@ -16,6 +16,8 @@ public:
     Response();
     std::string getContent();
     std::string getHeaders();
+    std::string getHeader(std::string name);
+    bool hasHeader(std::string name);
     void setContent(std::string content);
 };
 

@@ -35,3 +35,6 @@
 /Makefile
 /cmake_install.cmake
 /bin/
+/Testing/
+*.cmake
+*.tcl

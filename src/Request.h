@@ -14,6 +14,7 @@ protected:
     AttributesList *attributes;
     FCGX_Request request;
 public:
+    Request();
     Request(FCGX_Request request);
 };
 
