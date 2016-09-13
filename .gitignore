@@ -38,3 +38,6 @@
 /Testing/
 *.cmake
 *.tcl
+/_CPack_Packages/
+*.deb
+*.txt
