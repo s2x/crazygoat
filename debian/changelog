@@ -1,4 +1,4 @@
-libcrazygoat (0.0.1) xenial; urgency=low
+libcrazygoat (0.0.1) trusty; urgency=low
 
   * Initial release
 
