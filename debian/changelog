@@ -1,3 +1,9 @@
+libcrazygoat (0.0.2) trusty; urgency=low
+
+  * Add some travis updates
+
+ -- Piotr Hałas <piotr@halas.net.pl>  Wed, 14 Sep 2016 22:12:48 +0200
+
 libcrazygoat (0.0.1) trusty; urgency=low
 
   * Initial release
