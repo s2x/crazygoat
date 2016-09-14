@@ -8,3 +8,8 @@ Request::Request(FCGX_Request request) {
     this->attributes = new AttributesList(request);
     this->request = request;
 }
+
+Request::~Request() {
+    delete this->attributes;
+}
+

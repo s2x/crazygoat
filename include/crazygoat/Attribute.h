@@ -12,7 +12,7 @@ protected:
     std::string name;
     std::string value;
 public:
-    Attribute(std::string value, std::string name = "");
+    Attribute(std::string value, std::string name = ""):name(name), value(value) {};
     std::string toString();
 };
 

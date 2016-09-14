@@ -4,11 +4,6 @@
 
 #include "../../include/crazygoat/Attribute.h"
 
-Attribute::Attribute(std::string value, std::string name) {
-    this->name = name;
-    this->value = value;
-}
-
 std::string Attribute::toString() {
     if (this->name.length()) {
         return this->name + "=" + this->value;

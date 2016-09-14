@@ -14,8 +14,9 @@ protected:
     AttributesList *attributes;
     FCGX_Request request;
 public:
-    Request(FCGX_Request request);
+    explicit Request(FCGX_Request request);
+    Request(const Request& a): attributes(new AttributesList(*a.attributes)) {};
+    ~Request();
 };
-
 
 #endif //CRAZYGOAT_REQUEST_H

@@ -17,7 +17,7 @@ private:
     std::map<std::string, std::vector<Attribute> > attributes;
 public:
     AttributesList();
-    AttributesList(FCGX_Request request);
+    explicit AttributesList(FCGX_Request request);
     void setAttribute(std::string name, Attribute attribute);
     operator std::string();
 };

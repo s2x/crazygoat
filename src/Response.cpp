@@ -19,8 +19,7 @@ std::string Response::getHeaders() {
     return this->attributes;
 }
 
-Response::Response() {
-    this->content = "";
+Response::Response(): content("") {
     this->attributes.setAttribute("Content-type", Attribute("text/html"));
 }
 
