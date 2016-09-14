@@ -4,8 +4,9 @@ language: cpp
 compiler:
   - gcc
 # Build steps
-script:
+before_script:
   - cppcheck --error-exitcode=1  --enable=warning,performance,portability,style --language=c++ --quiet src/ examples/ include/
+script:
   - mkdir build
   - cd build
   - cmake .. && make
