@@ -2,7 +2,7 @@
 // Created by piotr on 02.11.16.
 //
 
-#include "../../include/crazygoat/Array.h"
+#include "../../include/crazygoat/Array/Array.h"
 
 std::string Array::getName() {
     return this->name;
@@ -29,6 +29,8 @@ Array::Array(std::string name): name(name) {
 }
 
 Array::Array(Array &b):name(b.name), value(b.value) {
+//    std::cout<<"Copy constructor"<<std::endl;
+
     this->isset = b.isset;
     this->last_key_id = b.last_key_id;
     this->parent = NULL;
@@ -37,12 +39,10 @@ Array::Array(Array &b):name(b.name), value(b.value) {
     this->childs.clear();
 
     //copy all childs
-    if (b.getType() == TYPE_ARRAY || b.getType() == TYPE_LIST) {
-        for (auto it : b.childs) {
-            Array *tmp = new Array(*it);
-            tmp->setParent(this);
-            this->childs.push_back(tmp);
-        }
+    for (auto it : b.childs) {
+        Array *tmp = new Array(*it);
+        tmp->setParent(this);
+        this->childs.push_back(tmp);
     }
     this->has_valid_childs = b.has_valid_childs;
     this->is_array = b.is_array;
@@ -169,8 +169,8 @@ bool Array::hasChildrens() {
 
 Array &Array::operator[](std::string key) {
     for (auto it: childs) {
-        if ((it)->name == key) {
-            return *(it);
+        if (it->name == key) {
+            return (*it);
         }
     }
 
@@ -201,11 +201,11 @@ Array::operator void *() {
     }
 
     //to do cleanup search path
-    Array *tmp = this;
-    while (tmp->parent && !tmp->parent->has_valid_childs) {
-        tmp = tmp->parent;
-    }
-    tmp->parent->unset(tmp->getName());
+//    Array *tmp = this;
+//    while (tmp->parent && !tmp->parent->has_valid_childs) {
+//        tmp = tmp->parent;
+//    }
+//    tmp->parent->unset(tmp->getName());
 
     return 0;
 }
@@ -220,5 +220,62 @@ bool Array::keyIsInt(std::string key) {
 
 void Array::setParent(Array *parent) {
     this->parent = parent;
+}
+
+Array &Array::operator=(Array &b) {
+    //do not copy self
+//    std::cout<<"Assigment oprator"<<std::endl;
+    //copy some settings
+    this->isset = b.isset;
+    this->last_key_id = b.last_key_id;
+    this->is_array = b.is_array;
+    this->has_valid_childs = b.has_valid_childs;
+    this->name = b.name;
+    this->value = b.value;
+
+    //clear childs
+    this->childs.clear();
+
+    //copy all childs
+
+    for (std::vector<Array *>::iterator it = b.childs.begin();
+         it != b.childs.end(); it++) {
+        Array *tmp = new Array();
+        *tmp = (**it);
+        tmp->setParent(this);
+        this->childs.push_back(tmp);
+    }
+    //force settings
+    this->has_valid_childs = b.has_valid_childs;
+    this->is_array = b.is_array;
+    return *this;
+}
+
+Array &Array::operator=(const Array &b) {
+//    std::cout<<"copy Operator"<<std::endl;;
+    //copy some settings
+    this->isset = b.isset;
+    this->last_key_id = b.last_key_id;
+    this->is_array = b.is_array;
+    this->has_valid_childs = b.has_valid_childs;
+    this->name = b.name;
+    this->value = b.value;
+
+    //clear childs
+    this->childs.clear();
+
+    //copy all childs
+
+    for (std::vector<Array *>::const_iterator it = b.childs.begin();
+         it != b.childs.end(); it++) {
+        Array *tmp = new Array();
+        *tmp = (**it);
+        tmp->setParent(this);
+        this->childs.push_back(tmp);
+    }
+    //force settings
+    this->has_valid_childs = b.has_valid_childs;
+    this->is_array = b.is_array;
+    return *this;
 }
 

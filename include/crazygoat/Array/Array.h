@@ -93,6 +93,9 @@ public:
      * Value assign
      */
     Array &operator=(std::string value);
+    Array &operator=(Array &b);
+    Array &operator=(const Array &b);
+
 
     Array &operator[](std::string key);
 

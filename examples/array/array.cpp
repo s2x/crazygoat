@@ -1,7 +1,8 @@
 //
 // Created by piotr on 02.11.16.
 //
-#include "../../include/crazygoat/Array.h"
+#include "../../include/crazygoat/Array/Array.h"
+#include "../../include/crazygoat/Array/ArrayHelper.h"
 
 void node_get_leafs(Array *root, std::vector<Array *> *leafs) {
 
@@ -10,9 +11,7 @@ void node_get_leafs(Array *root, std::vector<Array *> *leafs) {
         for (auto it: tmp) {
             node_get_leafs(it, leafs);
         }
-
     } else {
-
         leafs->push_back(root);
     }
 }
@@ -37,9 +36,20 @@ std::string build_http_query(Array *root) {
     }
     return query;
 }
+Array testCopy(Array tmp) {
+    tmp["test"]["dupa"] = "32323";
+    return tmp;
+}
 
 int main(void) {
 
+    Array setByPath;
+    setByPath["test"] = "32323";
+    setByPath = testCopy(setByPath);
+    setByPath = ArrayHelper::setByPath(setByPath, {"dasdasd", "3123123"}, "test");
+    std::cout<<"Set by path: "<<build_http_query(&setByPath)<<std::endl;
+
+    return 0;
     Array test;
     test["id"] = "1";
     test["title"] = "test titile";
@@ -106,5 +116,6 @@ int main(void) {
         }
         std::cout << name << "=" << it->getValue() << std::endl;
     }
+
 
 }
