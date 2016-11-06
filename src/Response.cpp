@@ -3,7 +3,7 @@
 //
 
 #include <sstream>
-#include "Response.h"
+#include "../include/crazygoat/Response.h"
 
 std::string Response::getContent() {
     return this->content;

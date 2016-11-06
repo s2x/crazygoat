@@ -6,7 +6,7 @@
 // Created by piotr on 12.09.16.
 //
 
-#include "../../src/App.h"
+#include "../../include/crazygoat/App.h"
 
 /**
  *  Simple action

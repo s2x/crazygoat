@@ -7,15 +7,22 @@
 
 
 #include <fcgiapp.h>
-#include "Attributes/AttributesList.h"
+#include "AttributesList.h"
+#include "Array/Array.h"
+#include "Parsers/QueryParser.h"
 
 class Request {
 protected:
+    QueryParser *queryParams;
     AttributesList *attributes;
     FCGX_Request request;
 public:
-    Request(FCGX_Request request);
-};
+    explicit Request(FCGX_Request request);
+    Request(const Request& a): queryParams(nullptr), attributes(new AttributesList(*a.attributes)) {};
+    ~Request();
 
+    std::string getEnvParameter(std::string name, std::string default_value = "");
+    bool hasEnvParameter(std::string name);
+};
 
 #endif //CRAZYGOAT_REQUEST_H

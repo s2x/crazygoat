@@ -6,7 +6,7 @@
 #define CRAZYGOAT_RESPONSE_H
 
 #include <iostream>
-#include "Attributes/AttributesList.h"
+#include "AttributesList.h"
 
 class Response {
 protected:

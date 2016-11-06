@@ -4,8 +4,8 @@
 
 #include <iostream>
 #include <fcgio.h>
-#include "App.h"
-#include "Request.h"
+#include "../include/crazygoat/App.h"
+#include "../include/crazygoat/Request.h"
 
 App::App() {
     // set read buffers

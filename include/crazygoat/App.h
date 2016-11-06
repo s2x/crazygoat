@@ -9,7 +9,7 @@
 #include <fcgiapp.h>
 
 #include "Response.h"
-#include "Filters/Filter.h"
+#include "Filter.h"
 
 class App {
 protected:

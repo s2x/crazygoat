@@ -49,7 +49,6 @@ int main(void) {
     setByPath = ArrayHelper::setByPath(setByPath, {"dasdasd", "3123123"}, "test");
     std::cout<<"Set by path: "<<build_http_query(&setByPath)<<std::endl;
 
-    return 0;
     Array test;
     test["id"] = "1";
     test["title"] = "test titile";

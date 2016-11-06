@@ -5,8 +5,8 @@
 #ifndef CRAZYGOAT_ACTION_H
 #define CRAZYGOAT_ACTION_H
 
-#include "../../src/Response.h"
-#include "../../src/Request.h"
+#include "Response.h"
+#include "Request.h"
 
 class Filter {
 protected:

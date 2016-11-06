@@ -2,7 +2,7 @@
 // Created by piotr on 12.09.16.
 //
 
-#include "../../src/App.h"
+#include "../../include/crazygoat/App.h"
 
 class myFilter : public Filter {
     Response invoke(Request request, Response response) {

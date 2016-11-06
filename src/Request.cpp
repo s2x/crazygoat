@@ -2,7 +2,7 @@
 // Created by piotr on 12.09.16.
 //
 
-#include "Request.h"
+#include "../include/crazygoat/Request.h"
 
 Request::Request(FCGX_Request request) {
     this->request = request;

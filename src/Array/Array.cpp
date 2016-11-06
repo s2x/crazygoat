@@ -238,10 +238,8 @@ Array &Array::operator=(Array &b) {
 
     //copy all childs
 
-    for (std::vector<Array *>::iterator it = b.childs.begin();
-         it != b.childs.end(); it++) {
-        Array *tmp = new Array();
-        *tmp = (**it);
+    for (auto it : b.childs) {
+        Array *tmp = new Array(*it);
         tmp->setParent(this);
         this->childs.push_back(tmp);
     }
@@ -266,10 +264,8 @@ Array &Array::operator=(const Array &b) {
 
     //copy all childs
 
-    for (std::vector<Array *>::const_iterator it = b.childs.begin();
-         it != b.childs.end(); it++) {
-        Array *tmp = new Array();
-        *tmp = (**it);
+    for (auto it : b.childs) {
+        Array *tmp = new Array(*it);
         tmp->setParent(this);
         this->childs.push_back(tmp);
     }
@@ -278,4 +274,3 @@ Array &Array::operator=(const Array &b) {
     this->is_array = b.is_array;
     return *this;
 }
-

@@ -13,7 +13,7 @@ protected:
     std::string message;
     Array params;
 public:
-    HttpParserAbstract(std::string message): message(message) {};
+    explicit HttpParserAbstract(std::string message): message(message) {};
     virtual ~HttpParserAbstract() {};
 
     virtual Array getAllParams() = 0;
