@@ -22,3 +22,4 @@ deploy:
   repository: stable
   username: crazygoat
   dist: ubuntu/xenial
+  skip_cleanup: true
