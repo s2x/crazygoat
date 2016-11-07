@@ -1,3 +1,9 @@
+libcrazygoat (0.0.3) trusty; urgency=medium
+
+  * fix travis
+
+ -- Piotr Halas <piotr@piotr-notebook>  Mon, 07 Nov 2016 15:25:07 +0100
+
 libcrazygoat (0.0.2) trusty; urgency=low
 
   * Add some travis updates

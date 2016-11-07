@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libcrazygoat
 Upstream-Contact: Piotr Hałas <piotr@halas.net.pl>
-Source: https://github.com/s2x/ccframework
+Source: https://github.com/s2x/crazygoat
 
 Files: *
 Copyright: 2016 Piotr Hałas <piotr@halas.net.pl>
