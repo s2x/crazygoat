@@ -6,11 +6,12 @@ before_script:
   --quiet src/ examples/ include/
 script:
 - mkdir build
+- mkdir build/packages
 - cd build
 - cmake .. && make
-- cpack
 - cd ..
 - debuild -b -uc -us
+- mv ../*.deb build/
 sudo: required
 dist: trusty
 before_install:
