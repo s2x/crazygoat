@@ -4,7 +4,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 set(crazygoat_VERSION_MAJOR 0)
 set(crazygoat_VERSION_MINOR 0)
-set(crazygoat_VERSION_PATCH 2)
+set(crazygoat_VERSION_PATCH 3)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
