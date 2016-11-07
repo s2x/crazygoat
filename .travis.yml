@@ -1,30 +1,24 @@
-# Enable C++ support
 language: cpp
-# Compiler selection
 compiler:
-  - gcc
-# Build steps
+- gcc
 before_script:
-  - cppcheck --error-exitcode=1  --enable=warning,performance,portability,style --language=c++ --quiet src/ examples/ include/
+- cppcheck --error-exitcode=1  --enable=warning,performance,portability,style --language=c++
+  --quiet src/ examples/ include/
 script:
-  - mkdir build
-  - cd build
-  - cmake .. && make
-  - cd ..
-  - debuild -b -uc -us
-# Ubuntu 14.04 Trusty support
+- mkdir build
+- cd build
+- cmake .. && make
+- cd ..
+- debuild -b -uc -us
 sudo: required
 dist: trusty
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libfcgi-dev devscripts debhelper cppcheck
-#deploy:
-#  provider: launchpad
-#  slug: "~piotrhalas/libcrazygoat/master"
-#  oauth_token:
-#    secure: Jszq4FFyUdDG6xPNyKhMHJhbjzrhtfu1nmYcwoOfTt0oDr6kcmAAqKqqtRVQQfma0q0tI6PxavXQi5LNgG4XxfNknxiay4WomV+jGySS/Y22otZJUS0u65v/3l5bNK+3SyNKuHWOU+Jl5nAiD+xUaY89KuQIULN+VRCxfl8TSt1YytYtogwkaLBkSgOWrf/0znglvU4X3jSjxhM/Zf1wkZRZ0El6VcDlc63/nbRlqp87W76b3ujgt8AH1pUZQTeeCtTmsuLHKcQK65LWQPekj/ysk+oHWsapYk4bGFXpqX6XFJ1SHcDq23h7qYnWOwQ9d2fRzbOjEL+MFxFkmaO6i9T6uK7Jx0MR0TpG49RV291/OjUQl8TODtMU3t/XNS7opf+COt59duaovlwuihKFQQqyLRxl1dkDNMI6tX0RvwFCrUKShjV5OOeIuWVGP9hU7ejsp9wnYrxDduC4AtZGpZRw2jP7hoG4uFNAgokMZpJbWl5rNMei+E5b6yg595tjTsEglPe5eaMarkMaQxVSGlgaQY5JPzs1NmLrzhwXua6kqW+V8RZuCRhW2taJ9YLI0+wuJmqquUemMKXjhQmPD/jpvj23WWSikplOb9K3NWBd1MVapWk5yJDcZK/iburIERbQ9vroELYxzGTweBnU8uAIimYSeG/yTvfx3OWm8xU=
-#  oauth_token_secret:
-#    secure: ZkZZeT8wnXi92h1AlwXUesasO52ocV/SxLVgPaoRTyfHopFxVFh7CNp2lbEF/xTt7EsP7nZAQUWr+OxFWJSvfIxjQ95EBWE5kdita9hRuMNzJj2PtXQ0liaJeepfi3nU66x1TuXWkNqD5rSfpMYmNlBqonzusWNfSlwF/P54Nggriyh0gpDffG4l33X1zpuFJNkjwmhFHdr3kV60dwIbPTaYG3ZGTWVj0I9wl3jzSY/87J64Ctk/DN3KaC2HhBYJNp5rhmouaTzSjKpvlLEbc8Bi6vQTlV1J4DVNbu4Yg5G12dcgXGGvr50iqMJqduiydw3tXwqcZtkOB7XhZQnytc33qZXRXkBWXaziU8Lc4x4Qbk6nfug5sfTHNEpCQQ8ZRMrybM7k0K4E3UxY2u7KcOovyWq+fkJ5DR4gWnzcbZFO6ZAsW/PtZSoOFrhKy1tInNc+Di9B0PqWX2viS9LwBe1wKNtn8O66G90aJy+46ikhODlt3piQEV8c6WQNhBJEfQjjEau1JorRrZc6VNJHN2iepaQjA71AbPRQjlXbRxLkvfrvLV1nnNPn1TTwqgq81OMRQfN6DBWecEfECHgaAjo5ozqoR2URtflwQGLl5XMcutI/azw5vQGLswtAO7nszZflPLn7mN47rTrAQEbaqrognl5niT1VHhnk+LaTFYc=
-branches:
-  except:
-  - develop
+- sudo apt-get -qq update
+- sudo apt-get install -y libfcgi-dev devscripts debhelper cppcheck
+deploy:
+  token:
+    secure: yGBn5fYP5NWYdHGa3NOJZvhveIZCftg5pCYmxZk2oEX6W4ayzWkWRF1Hy2nyHry4q6TFvZXj83mDYLzZ56J0DsAoqxri9lcHRRUuge5CnL9L8utnn6971A7auFl9PyzQtVosoNUMXq/8WjDd6r6h+fx3OjbYYis8C3YEqLfR1/Y3D0LkvM4Lad/bSg2UlwoxN+wSmlHRYAm6kkgYexoVzPgeG4bP302xen1ODkXjilcAkl3Hlp9ZrS51XLmxVEGpoFIqNLgbFRlAdU+A6T1d2ow6DrNlfi1uTdfNvNf+3lo/6qRMC/5l9CgQLx6Birh/UVYwkv50FaYIQ6DB/XHGzeIL8o3IeILdvm0fqqiEnhLLX8gFDuUHw6LAtVtnIXFEtCcNjKpbCc+dTsCC6kqXIjh8C1WIN5KhZZPkoRFdPqXy+XWLxN1LpVtKzwKjMB+QJAOUG+k5xiXcDsftZpHs/3fgxUXFYLnZeS1twAyDdN2eW/d0wEu+QLLIzMctcus2JiSqyV5HOqoyLkPxaRAiBIevRcPWuhMTjMKzI3jmxB0YQkUERaVcPvgRJ17n/YfR6dAkxsIPhBBlz69/OlArp/PKhA40MPQLIQGRieM/cJEeFKbmHyjb7lp/FbZQ1rNmsAnzDIpwIGoHaterx08j98DkFXEAqsXTqp5efqLPBKQ=
+  provider: packagecloud
+  repository: "stable"
+  username: "crazygoat"
+  dist: "ubuntu/xenial"
