@@ -24,3 +24,4 @@ deploy:
   username: crazygoat
   dist: ubuntu/xenial
   skip_cleanup: true
+  local-dir: build
